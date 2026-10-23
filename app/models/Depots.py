@@ -8,7 +8,7 @@ class Depots:
     def sauvegarde_scraping(self,chemin ,produit ,champ=["Nom" ,"Prix" ,"Note" ,"Image URL"]):
         # print(os.path.abspath(chemin))
         if not(os.path.exists(chemin)) : return "Chemin inexistant !"
-        with open(chemin ,"a" ,newline="" ,encoding="utf-8") as f :
+        with open(chemin ,"w" ,newline="" ,encoding="utf-8") as f :
             save = csv.DictWriter(f, fieldnames=champ)
             save.writeheader()
             save.writerows(produit)

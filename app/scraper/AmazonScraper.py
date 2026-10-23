@@ -15,14 +15,15 @@ class AmazonScraper :
         liste_produit = []
         driver = webdriver.Chrome()
         driver.get(url)
+        time.sleep(random.uniform(3,6))
         WebDriverWait(driver ,10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR ,"div[data-component-type=s-search-result]"))
         )
         for element in driver.find_elements(By.TAG_NAME ,"div[data-component-type=s-search-result]"):
-            nom = element.find_element(By.CSS_SELECTOR ,"h2.a-size-base-plus-a-spacing-none-a-color-base-a-text-normal").text
+            #nom = element.find_element(By.CSS_SELECTOR ,"h2.a-size-base-plus-a-spacing-none-a-color-base-a-text-normal").text
             prix = element.find_element(By.CSS_SELECTOR ,"span.a-price span.a-offscreen").get_attribute("textcontent")
             note = element.find_element(By.CSS_SELECTOR,"span.a-size-small a-co(lor-base span.a-row a-size-small ").get_attribute("textcontent")
             image_url = element.find_element(By.CSS_SELECTOR,"div.a-section-aok-relative-s-image-square-aspect img.s-image").get_attribute("url")
             #produit = produit(nom ,prix ,note ,image_url)
-            liste_produit.append([nom,prix,note,image_url])
+            liste_produit.append([prix,note,image_url])
         return liste_produit
