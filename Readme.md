@@ -113,10 +113,7 @@ Nom,Prix,Note,Image URL
 - [ ] Export des statistiques (option 4 du menu)
 - [ ] Gestion des erreurs (produit sans note ou sans prix, page qui ne charge pas)
 
-## Remarques
 
-- Amazon modifie régulièrement la structure de ses pages et peut bloquer les requêtes automatiques. Ce projet est fait uniquement dans un but d'apprentissage.
-- Il faut respecter les conditions d'utilisation du site et ne pas lancer le scraping de façon excessive.
 
 ## Auteur
 

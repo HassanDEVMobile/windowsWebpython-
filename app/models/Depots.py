@@ -5,13 +5,13 @@ import csv
 
 class Depots:
 
-    def sauvegarde_scraping(self,chemin ,produit ,champ=["Nom" ,"Prix" ,"Note" ,"Image URL"]):
+    def sauvegarde_scraping(self,chemin ,liste_produit ,champ=["Nom" ,"Prix" ,"Note" ,"Image URL"]):
         # print(os.path.abspath(chemin))
         if not(os.path.exists(chemin)) : return "Chemin inexistant !"
         with open(chemin ,"w" ,newline="" ,encoding="utf-8") as f :
             save = csv.DictWriter(f, fieldnames=champ)
             save.writeheader()
-            save.writerows(produit)
+            save.writerows(liste_produit)
 
     def chargement_scraping_donner(self ,chemin):
         if not os.path.exists(chemin) : return "Vous ne pouvez pas charger les données d'un chemin inexistant !"
